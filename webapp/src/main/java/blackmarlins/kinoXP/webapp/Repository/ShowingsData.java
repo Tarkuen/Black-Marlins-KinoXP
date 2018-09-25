@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 @Repository
 public class ShowingsData implements ShowingRepository{
@@ -13,7 +14,7 @@ public class ShowingsData implements ShowingRepository{
 
     public ShowingsData() throws SQLException {
 
-        
+
     }
 
     @Override
@@ -34,5 +35,10 @@ public class ShowingsData implements ShowingRepository{
     @Override
     public void delete() {
 
+    }
+
+    @Override
+    public List populate() {
+        return null;
     }
 }
