@@ -5,12 +5,15 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class ShowingsData implements ShowingRepository{
 
     Connection dbConn = DataConnection.getConn();
+
+    List<Visning> allShowingsList = new ArrayList<>();
 
     public ShowingsData() throws SQLException {
 
@@ -23,7 +26,7 @@ public class ShowingsData implements ShowingRepository{
     }
 
     @Override
-    public void read() {
+    public void read(int id) {
 
     }
 
@@ -39,6 +42,12 @@ public class ShowingsData implements ShowingRepository{
 
     @Override
     public List populate() {
+        for (Visning visning : allShowingsList) {
+        }
         return null;
+    }
+
+    public List<Visning> getAllShowingsList() {
+        return allShowingsList;
     }
 }
