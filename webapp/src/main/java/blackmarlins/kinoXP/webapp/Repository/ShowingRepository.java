@@ -10,5 +10,6 @@ public interface ShowingRepository {
     public void update();
     public void delete();
     public List populate();
+    public List readAll(int id);
 
 }

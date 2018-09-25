@@ -7,10 +7,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultHandler;
+import org.springframework.web.servlet.ModelAndView;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.request;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
@@ -18,20 +23,22 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
 @SpringBootTest
 public class ControllerTest {
 
-   @Test
-   public void indexController() throws Exception {
-       MockMvc mockMvc = standaloneSetup().build();
-
-       mockMvc.perform(get("/"))
-               .andExpect(
-                       view().name("HomePage")
-               );
-       mockMvc.perform(post("/"))
-               .andExpect(
-                       view().name("HomePage")
-               );
-
-   }
+//   @Test
+//   public void indexController() throws Exception {
+//       MockMvc mockMvc = standaloneSetup().build();
+//
+//       mockMvc.perform(get("/"))
+//               .andExpect(
+//                       view().name("HomePage")
+//               );
+//       mockMvc.perform(post("/"))
+//               .andExpect(
+//                       view().name("HomePage")
+//               );
+//
+//
+//
+//   }
 
 
 

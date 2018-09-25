@@ -9,15 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ShowingsData implements ShowingRepository{
+public class ShowingsRepository implements ShowingRepository{
 
-    Connection dbConn = DataConnection.getConn();
-
-    List<Visning> allShowingsList = new ArrayList<>();
-
-    public ShowingsData() throws SQLException {
+    private List<Visning> allShowingsList;
+    DataConnection dataConnection;
 
 
+    public ShowingsRepository() throws SQLException {
+       this.allShowingsList = new ArrayList<>();
+       dataConnection = DataConnection.getInstance();
     }
 
     @Override
@@ -42,7 +42,20 @@ public class ShowingsData implements ShowingRepository{
 
     @Override
     public List populate() {
+        List<Visning> allShowingsList = new ArrayList<>();
         for (Visning visning : allShowingsList) {
+        }
+        return null;
+    }
+
+    @Override
+    public List readAll(int id) {
+        List<Visning> allShowingsList = new ArrayList<>();
+        try {
+            Connection dbConn = DataConnection.getConn();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }

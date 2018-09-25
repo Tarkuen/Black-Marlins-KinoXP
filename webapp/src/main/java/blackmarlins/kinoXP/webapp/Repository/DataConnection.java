@@ -18,7 +18,6 @@ public class DataConnection {
    private static DataConnection instance;
 
     private DataConnection() {
-
         connection= String.format(cONN_String,
                 endpoint_String,
                 port,
@@ -27,7 +26,7 @@ public class DataConnection {
                 password);
     }
 
-    public DataConnection getInstance() {
+    public static DataConnection getInstance() {
         if(instance==null){
             return instance = new DataConnection();
         }
