@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DataConnection {
-    private String connection;
+    private static String connection;
 
     private String cONN_String="jdbc:mysql://%s:%s/%s?user=%s&password=%s&useSSL=false";
     private final String endpoint_String = "blackmarlins.ckervnrsg7db.eu-central-1.rds.amazonaws.com";
@@ -35,7 +35,7 @@ public class DataConnection {
     }
 
 
-    public Connection getConn() throws SQLException {
+    public static Connection getConn() throws SQLException {
         return DriverManager.getConnection(connection);
     }
 
