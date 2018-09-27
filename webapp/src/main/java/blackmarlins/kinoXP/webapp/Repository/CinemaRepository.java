@@ -25,8 +25,4 @@ public class CinemaRepository implements iCinemaRepository {
         return null;
     }
 
-    @Override
-    public List<Cinema> populate() {
-        return null;
-    }
 }
