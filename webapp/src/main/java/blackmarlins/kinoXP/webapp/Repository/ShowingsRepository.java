@@ -2,13 +2,14 @@ package blackmarlins.kinoXP.webapp.Repository;
 
 import blackmarlins.kinoXP.webapp.Model.Showing;
 import org.springframework.stereotype.Repository;
-
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ShowingsRepository implements iShowingRepository {
+public class ShowingsRepository implements IShowingRepository{
 
 
    private DataConnection dataConnection;
@@ -22,7 +23,7 @@ public class ShowingsRepository implements iShowingRepository {
     public DataConnection getDataConnection() {
         return dataConnection;
     }
-
+ 
  @Override
  public void create(Date showing_Date, Integer movie_ID, int cinema_ID) {
 
