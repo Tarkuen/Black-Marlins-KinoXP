@@ -1,6 +1,9 @@
 package blackmarlins.kinoXP.webapp.Repository;
 
 import blackmarlins.kinoXP.webapp.Model.Visning;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -9,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ShowingsRepository implements ShowingRepository{
+public class ShowingsRepository implements IShowingRepository{
 
     private List<Visning> allShowingsList;
     DataConnection dataConnection;
