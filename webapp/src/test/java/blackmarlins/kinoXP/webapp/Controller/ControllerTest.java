@@ -129,7 +129,7 @@ class Reservation{
 
     @Override
     public String toString() {
-        return "Reservation{" +
+        return "iReservation{" +
                 "film=" + film +
                 ", kunde=" + kunde +
                 ", visning=" + visning +

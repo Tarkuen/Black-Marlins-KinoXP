@@ -1,15 +1,13 @@
 package blackmarlins.kinoXP.webapp.Repository;
 
-import blackmarlins.kinoXP.webapp.Model.Visning;
 import org.springframework.stereotype.Repository;
-import java.sql.Connection;
+
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ShowingsRepository implements IShowingRepository{
+public class ShowingsRepository implements iShowingRepository {
 
 
    private DataConnection dataConnection;
