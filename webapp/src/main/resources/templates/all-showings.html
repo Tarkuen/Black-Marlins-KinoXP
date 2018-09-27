@@ -14,7 +14,7 @@
                         <input class="btn" type="button" value="Time">
                     </td>
                 </tr>
-                <tr th:each="${showing : allShowings}">
+                <tr th:each="showing : ${allShowings}">
                     <td th:text="{{showing.time}}"></td>
                 </tr>
             </table>

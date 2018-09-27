@@ -53,7 +53,7 @@ public class ShowingsRepository implements IShowingRepository {
   List<Showing> showings = new ArrayList<>();
   ResultSet rs = null;
 
-  try (Connection conn = DataConnection.getConn()) {
+  try (Connection conn = databaseConnection.getConn()) {
    PreparedStatement pstms = conn.prepareStatement("SELECT showing_id, showing_datetime, fk_movie_id, fk_cinema_id FROM Showing WHERE fk_movie_id=?;");
    pstms.setInt(1, id);
    rs = pstms.executeQuery();

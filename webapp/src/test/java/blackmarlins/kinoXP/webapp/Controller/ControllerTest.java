@@ -1,5 +1,9 @@
 package blackmarlins.kinoXP.webapp.Controller;
 
+import blackmarlins.kinoXP.webapp.Model.Movie;
+import blackmarlins.kinoXP.webapp.Model.Showing;
+import blackmarlins.kinoXP.webapp.Repository.MovieRepository;
+import blackmarlins.kinoXP.webapp.Repository.ShowingsRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -9,7 +13,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultHandler;
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -22,6 +29,30 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ControllerTest {
+    @Test
+    public void index() throws Exception {
+        MovieRepository movieRepository = new MovieRepository();
+        List<Movie> movieList = movieRepository.readAll(1);
+        assertTrue(movieList.size()!=0);
+    }
+
+    @Test
+    public void showAllShowings() throws Exception {
+
+        int movie_id = 1;
+        ShowingsRepository showingsRepository = new ShowingsRepository();
+        List<Showing> showingList = showingsRepository.readAll(movie_id);
+
+        assertTrue(showingList.size()!=0);
+    }
+
+    @Test
+    public void searchForShowings() throws Exception {
+    }
+
+    @Test
+    public void reservationSuccess() throws Exception {
+    }
 
 //   @Test
 //   public void indexController() throws Exception {

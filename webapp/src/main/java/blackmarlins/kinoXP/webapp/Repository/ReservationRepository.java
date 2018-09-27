@@ -35,7 +35,7 @@ public class ReservationRepository implements iReservationRepository {
             pstmt.setString(1, reservation.getCustomer().getPhone());
             pstmt.setString(2, reservation.getCustomer().getName());
             pstmt.setInt(3, reservation.getCustomer().getSeat());
-            pstmt.setInt(3, reservation.getShowing().getId());
+            pstmt.setInt(3, reservation.getShowing().getShowingId());
 
             pstmt.execute();
             conn.commit();

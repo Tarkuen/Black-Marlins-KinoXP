@@ -27,17 +27,18 @@ public class Controller {
         if (movieList != null && movieList.size() > 0) {
             model.addAttribute("allMovies", movieList);
         }
-        return "Test";
+        return "Index";
     }
+
 
     @PostMapping(path = "/Allshowings")
     public String showAllShowings(@RequestParam(name = "movie_id") Integer movie_id, Model model) throws SQLException {
         ShowingsRepository showingsRepository = new ShowingsRepository();
         List<Showing> showingList = showingsRepository.readAll(movie_id);
         if (showingList != null && showingList.size() > 0) {
-            model.addAttribute("showingList", showingList);
+            model.addAttribute("allShowings", showingList);
         }
-        return "Allshowings";
+        return "all-showings";
     }
 
     @PostMapping(path = "/reseverside")
