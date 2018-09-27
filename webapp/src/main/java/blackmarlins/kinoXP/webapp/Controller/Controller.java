@@ -1,5 +1,6 @@
 package blackmarlins.kinoXP.webapp.Controller;
 
+import blackmarlins.kinoXP.webapp.Model.Customer;
 import blackmarlins.kinoXP.webapp.Model.Movie;
 import blackmarlins.kinoXP.webapp.Model.Reservation;
 import blackmarlins.kinoXP.webapp.Model.Showing;
@@ -56,7 +57,9 @@ public class Controller {
                                      @RequestParam(name = "customer_seat") int customer_seat) throws SQLException {
 
         ReservationRepository reservationRepository = new ReservationRepository();
-        reservation = new Reservation(customer_phone,customer_name,customer_seat);
+        Customer customer = new Customer(customer_phone, customer_name, customer_seat);
+        Showing showing = reservation.getShowing();
+        reservation = new Reservation(customer, showing);
         reservationRepository.create(reservation);
 
         return "successfullReservation";

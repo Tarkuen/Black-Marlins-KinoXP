@@ -13,6 +13,25 @@ public class Reservation {
         this.showing = showing;
     }
 
+    public Reservation(Customer customer, Showing showing) {
+        this.customer = customer;
+        this.showing = showing;
+    }
+
+    public Reservation(Movie movie) {
+        this.movie = movie;
+    }
+
+    public Reservation(Customer customer) {
+        this.customer = customer;
+    }
+
+
+
+    public Reservation(Showing showing){
+        this.showing = showing;
+    }
+
     public Customer getCustomer() {
         return customer;
     }
@@ -21,9 +40,9 @@ public class Reservation {
         return showing;
     }
 
-    public Reservation(Showing showing){
-        this.showing = showing;
-    }
+
+
+
     @Override
     public String toString() {
         return "Reservation{" +

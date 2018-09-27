@@ -6,8 +6,10 @@ public class Customer {
     private String phone;
     private int seat;
 
-    public Customer(String name){
-        this.name=name;
+    public Customer(String name, String phone, int seat) {
+        this.name = name;
+        this.phone = phone;
+        this.seat = seat;
     }
 
     public String getName() {
