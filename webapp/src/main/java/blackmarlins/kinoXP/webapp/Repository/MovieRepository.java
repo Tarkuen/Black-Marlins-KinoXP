@@ -4,6 +4,7 @@ import blackmarlins.kinoXP.webapp.Model.Movie;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,29 +51,24 @@ public class MovieRepository implements IMovieRepository {
     @Override
     public List<Movie> readAll(int id) {
 
+            List<Movie> r = new ArrayList<>();
+            ResultSet rs = null;
         try (Connection conn = dataConnection.getConn()) {
             PreparedStatement pstms = conn.prepareStatement("SELECT movie_id, movie_name, movie_genre FROM blackmarlinsdb.Movie");
-            pstms.setInt(1, restordreNummer);
             rs = pstms.executeQuery();
 
 
-            if (rs.next()) {
+            while (rs.next()) {
                 //Husk at SQL Resultset ikke er zero-indexet.
                 int i = 1;
 
-                r = new Restordre(
+                Movie es = new Movie(
                         rs.getInt(i++),
                         rs.getString(i++),
-                        rs.getString(i++),
-                        rs.getString(i++),
-                        rs.getString(i++),
-                        rs.getInt(i++),
-                        rs.getString(i++),
-                        rs.getDate(i++),
-                        rs.getString(i++),
-                        rs.getString(i++),
-                        rs.getInt(i));
-                return r;
+                        rs.getString(i)
+                );
+
+                r.add(es);
             }
             return r;
         } catch (SQLException ex) {
@@ -81,7 +77,5 @@ public class MovieRepository implements IMovieRepository {
         }
 
     }
-
-        return null;
-    }
 }
+
