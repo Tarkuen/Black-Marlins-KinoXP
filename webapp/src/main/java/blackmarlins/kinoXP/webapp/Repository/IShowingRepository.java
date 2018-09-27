@@ -6,7 +6,7 @@ import blackmarlins.kinoXP.webapp.Model.Visning;
 import java.sql.Date;
 import java.util.List;
 
-public interface iShowingRepository {
+public interface IShowingRepository {
 
     public void create(Date showing_Date, Integer movie_ID, int cinema_ID);
     public Visning read(int id);

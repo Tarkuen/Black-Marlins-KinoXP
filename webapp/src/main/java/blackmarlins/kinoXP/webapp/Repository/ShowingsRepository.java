@@ -1,13 +1,15 @@
 package blackmarlins.kinoXP.webapp.Repository;
 
+import blackmarlins.kinoXP.webapp.Model.Visning;
 import org.springframework.stereotype.Repository;
-
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ShowingsRepository implements iShowingRepository {
+public class ShowingsRepository implements IShowingRepository{
 
 
    private DataConnection dataConnection;
@@ -24,8 +26,8 @@ public class ShowingsRepository implements iShowingRepository {
     }
 
     @Override
-    public void read(int id) {
-
+    public Visning read(int id) {
+     return null;
     }
 
     @Override
