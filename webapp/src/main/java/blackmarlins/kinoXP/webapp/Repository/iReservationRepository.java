@@ -5,9 +5,9 @@ import blackmarlins.kinoXP.webapp.Model.Reservation;
 import java.sql.Date;
 import java.util.List;
 
-public interface iReservation {
+public interface iReservationRepository {
 
-    public void create(Date showing_Date, Integer movie_ID, int cinema_ID);
+    public void create(int customer_phone_number, String customer_full_name, int customer_seat_number, int showing_id);
     public Reservation read(int id);
     public void update(int id);
     public void delete(int id);

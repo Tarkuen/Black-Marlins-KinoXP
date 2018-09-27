@@ -74,7 +74,7 @@ class Film{
 
     @Override
     public String toString() {
-        return "Film{" +
+        return "Movie{" +
                 "name='" + name + '\'' +
                 '}';
     }
@@ -92,7 +92,7 @@ class Kunde{
 
     @Override
     public String toString() {
-        return "Kunde{" +
+        return "Customer{" +
                 "name='" + name + '\'' +
                 '}';
     }
@@ -111,7 +111,7 @@ class Visning{
 
     @Override
     public String toString() {
-        return "Visning{" +
+        return "Showing{" +
                 "name='" + name + '\'' +
                 '}';
     }
@@ -129,7 +129,7 @@ class Reservation{
 
     @Override
     public String toString() {
-        return "iReservation{" +
+        return "iReservationRepository{" +
                 "film=" + film +
                 ", kunde=" + kunde +
                 ", visning=" + visning +

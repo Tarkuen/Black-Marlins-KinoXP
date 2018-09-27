@@ -1,7 +1,7 @@
 package blackmarlins.kinoXP.webapp.Repository;
 
 
-import blackmarlins.kinoXP.webapp.Model.Visning;
+import blackmarlins.kinoXP.webapp.Model.Showing;
 
 import java.sql.Date;
 import java.util.List;
@@ -9,10 +9,10 @@ import java.util.List;
 public interface iShowingRepository {
 
     public void create(Date showing_Date, Integer movie_ID, int cinema_ID);
-    public Visning read(int id);
+    public Showing read(int id);
     public void update(int id);
     public void delete(int id);
-    public List<Visning> populate();
-    public List<Visning> readAll(int id);
+    public List<Showing> populate();
+    public List<Showing> readAll(int id);
 
 }

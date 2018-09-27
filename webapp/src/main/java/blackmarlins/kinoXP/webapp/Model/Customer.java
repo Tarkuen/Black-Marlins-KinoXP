@@ -1,22 +1,20 @@
 package blackmarlins.kinoXP.webapp.Model;
 
-public class Visning {
+public class Customer {
 
     String name;
 
-    public Visning(String name){
-        this.name = name;
+   public Customer(String name){
+        this.name=name;
     }
-
     public String getName() {
         return name;
     }
 
     @Override
     public String toString() {
-        return "Visning{" +
+        return "Customer{" +
                 "name='" + name + '\'' +
                 '}';
     }
-
 }

@@ -1,11 +1,11 @@
 package blackmarlins.kinoXP.webapp.Model;
 
-public class Film {
+public class Showing {
 
     String name;
 
-    public    Film (String name){
-        this.name=name;
+    public Showing(String name){
+        this.name = name;
     }
 
     public String getName() {
@@ -14,8 +14,9 @@ public class Film {
 
     @Override
     public String toString() {
-        return "Film{" +
+        return "Showing{" +
                 "name='" + name + '\'' +
                 '}';
     }
+
 }

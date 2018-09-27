@@ -2,22 +2,22 @@ package blackmarlins.kinoXP.webapp.Model;
 
 public class Reservation {
 
-    private Film film;
-    private Kunde kunde;
-    private Visning visning;
+    private Movie movie;
+    private Customer customer;
+    private Showing showing;
 
-    public Reservation(Film film, Kunde kunde, Visning visning) {
-        this.film = film;
-        this.kunde = kunde;
-        this.visning = visning;
+    public Reservation(Movie movie, Customer customer, Showing showing) {
+        this.movie = movie;
+        this.customer = customer;
+        this.showing = showing;
     }
 
     @Override
     public String toString() {
         return "Reservation{" +
-                "film=" + film +
-                ", kunde=" + kunde +
-                ", visning=" + visning +
+                "movie=" + movie +
+                ", customer=" + customer +
+                ", showing=" + showing +
                 '}';
 
     }
