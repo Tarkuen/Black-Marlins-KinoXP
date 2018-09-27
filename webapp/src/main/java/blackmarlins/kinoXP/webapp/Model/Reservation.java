@@ -2,6 +2,7 @@ package blackmarlins.kinoXP.webapp.Model;
 
 public class Reservation {
 
+    private int id;
     private Movie movie;
     private Customer customer;
     private Showing showing;
@@ -10,6 +11,14 @@ public class Reservation {
         this.movie = movie;
         this.customer = customer;
         this.showing = showing;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Showing getShowing() {
+        return showing;
     }
 
     @Override

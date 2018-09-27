@@ -2,12 +2,16 @@ package blackmarlins.kinoXP.webapp.Model;
 
 public class Showing {
 
-    String name;
+    private int id;
+    private String name;
 
     public Showing(String name){
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
     public String getName() {
         return name;
     }
