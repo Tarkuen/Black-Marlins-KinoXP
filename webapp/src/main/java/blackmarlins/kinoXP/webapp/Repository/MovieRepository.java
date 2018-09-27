@@ -2,14 +2,11 @@ package blackmarlins.kinoXP.webapp.Repository;
 
 import blackmarlins.kinoXP.webapp.Model.Movie;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieRepository implements iMovieRepository {
+public class MovieRepository implements IMovieRepository {
 
     private DataConnection dataConnection;
 
@@ -40,7 +37,14 @@ public class MovieRepository implements iMovieRepository {
 
     @Override
     public void delete(int id) {
+        try (Connection conn = dataConnection.getConn()) {
 
+            PreparedStatement pstms = conn.prepareStatement("DELETE FROM blackmarlinsdb.Showing WHERE =" + id);
+            pstms.executeUpdate();
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
