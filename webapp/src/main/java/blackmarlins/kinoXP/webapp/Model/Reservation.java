@@ -21,6 +21,9 @@ public class Reservation {
         return showing;
     }
 
+    public Reservation(Showing showing){
+        this.showing = showing;
+    }
     @Override
     public String toString() {
         return "Reservation{" +
