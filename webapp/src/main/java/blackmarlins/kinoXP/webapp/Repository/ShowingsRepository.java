@@ -25,7 +25,6 @@ public class ShowingsRepository implements IShowingRepository {
 
  @Override
  public void create(Date showing_Date, Integer movie_ID, int cinema_ID) {
-
  }
 
  @Override

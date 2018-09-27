@@ -8,6 +8,6 @@ import java.util.List;
 public interface iCinemaRepository {
 
     public Cinema read(int id);
-    public List<Cinema> populate();
+
 
 }

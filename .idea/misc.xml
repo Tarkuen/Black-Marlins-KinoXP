@@ -3,6 +3,7 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+<<<<<<< Updated upstream
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -10,4 +11,7 @@
       </list>
     </option>
   </component>
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+>>>>>>> Stashed changes
 </project>

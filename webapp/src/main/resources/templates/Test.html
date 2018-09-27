@@ -34,7 +34,8 @@
         <th><input class="btn" type="button" value="Name" onclick="sortTable(this.value)"></th>
         <th><input class="btn" type="button" value="Country" onclick="sortTable(this.value)"></th>
     </tr>
-    <tr>
+    <tr th:each ="Movie : $(movie">
+
         <td>Berglunds snabbkop</td>
         <td>Sweden</td>
     </tr>
