@@ -1,6 +1,7 @@
 package blackmarlins.kinoXP.webapp.Repository;
 
 import blackmarlins.kinoXP.webapp.Model.Showing;
+import com.mysql.jdbc.PreparedStatement;
 import org.springframework.stereotype.Repository;
 import java.sql.Connection;
 import java.sql.Date;
@@ -23,10 +24,9 @@ public class ShowingsRepository implements IShowingRepository{
     public DataConnection getDataConnection() {
         return dataConnection;
     }
- 
+
  @Override
  public void create(Date showing_Date, Integer movie_ID, int cinema_ID) {
-
  }
 
  @Override

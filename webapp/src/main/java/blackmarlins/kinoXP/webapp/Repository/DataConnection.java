@@ -34,7 +34,7 @@ public class DataConnection {
     }
 
 
-    public static Connection getConn() throws SQLException {
+    public Connection getConn() throws SQLException {
         return DriverManager.getConnection(connection);
     }
 
