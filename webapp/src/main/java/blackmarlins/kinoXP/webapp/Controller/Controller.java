@@ -23,11 +23,12 @@ public class Controller {
     @GetMapping(path = "/")
     public String index(Model model) throws SQLException {
         MovieRepository movieRepository = new MovieRepository();
-        List<Movie> movieList = movieRepository.populate();
+        List<Movie> movieList = movieRepository.readAll(0);
         if (movieList != null && movieList.size() > 0) {
+
             model.addAttribute("allMovies", movieList);
         }
-        return "Index";
+        return "Test";
     }
 
 

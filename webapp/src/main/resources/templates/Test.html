@@ -1,62 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" type="text/css" href="../static/css/Test.css">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Sort a HTML Table Alphabetically</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/Test.css">
+</head>
 
-    </head>
 <body>
-
 <p>Click the button to sort the table alphabetically, by name:</p>
 
+<form method="post" action="all-showings.html">
 <table id="myTable">
+<thead>
     <tr>
-        <th><input class="btn" type="button" value="Name" onclick="sortTable(this.value)"></th>
-<<<<<<< Updated upstream
-        <th><input class="btn" type="button" value="Country" onclick="sortTable(this.value)"></th>
-    </tr>
-    <tr th:each ="Movie : $(movie">
-
-        <td>Berglunds snabbkop</td>
-        <td>Sweden</td>
-    </tr>
-    <tr>
-        <td>North/South</td>
-        <td>UK</td>
-    </tr>
-    <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Germany</td>
-    </tr>
-    <tr>
-        <td>Koniglich Essen</td>
-        <td>Germany</td>
-    </tr>
-    <tr>
-        <td>Magazzini Alimentari Riuniti</td>
-        <td>Italy</td>
-=======
         <th><input class="btn" type="button" value="Genre" onclick="sortTable(this.value)"></th>
         <th><input class="btn" type="button" value="Dato" onclick="sortTable(this.value)"></th>
         <th><input class="btn" type="button" value="start tidspunkt" onclick="sortTable(this.value)"></th>
         <th></th>
->>>>>>> Stashed changes
     </tr>
-    <tr th:each="Movie : ${Movie_Data}">
-        <td th:text="${Movie.movie_name}"> </td>
-        <td th:text="${Movie.movie_genre}"> </td>
+</thead>
 
-
+    <tbody>
+    <tr th:each=" movie : ${allMovies}">
+        <td th:text="${movie.name}"> </td>
+        <td th:text="${movie.genre}"> </td>
+        <td>
+            <button type="submit" formaction="/allShowings" name="movie_id" value="${movie.id}"> Vælg Film</button>
+        </td>
     </tr>
-
+    </tbody>
 </table>
+</form>
 
 <script>
+
     function sortTable(val) {
         var table, rows, switching, i, x, y, shouldSwitch,t;
         table = document.getElementById("myTable");
@@ -99,12 +76,5 @@
         }
     }
 </script>
-
-</body>
-</html>
-
-</head>
-<body>
-
 </body>
 </html>
