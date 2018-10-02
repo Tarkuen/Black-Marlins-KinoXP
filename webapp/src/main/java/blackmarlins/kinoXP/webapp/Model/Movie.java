@@ -4,6 +4,10 @@ public class Movie {
     int id;
     String name;
     String genre;
+
+    public Movie() {
+    }
+
     public Movie(String name){
         this.name=name;
     }

@@ -51,6 +51,8 @@ public class Controller {
         model.addAttribute(reservation);
         model.addAttribute("showing", showing);
         model.addAttribute("movie", movie);
+        Customer c = new Customer("","",0);
+        model.addAttribute("customer", c);
         return "reserverside";
     }
 

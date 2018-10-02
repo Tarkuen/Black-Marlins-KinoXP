@@ -11,6 +11,9 @@ public class Showing {
     int movieId;
     int cinemaId;
 
+    public Showing() {
+    }
+
     public Showing(int showingId, LocalDateTime showingDateTime, int movieId, int cinemaId) {
         this.showingId = showingId;
         this.showingDateTime = showingDateTime;

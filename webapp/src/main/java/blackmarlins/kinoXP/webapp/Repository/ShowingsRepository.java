@@ -29,7 +29,33 @@ public class ShowingsRepository implements IShowingRepository {
 
  @Override
  public Showing read(int id) {
-  return null;
+  Showing m = new Showing();
+  ResultSet rs;
+
+  try (Connection conn = databaseConnection.getConn()){
+
+   Statement statement = conn.createStatement();
+   rs = statement.executeQuery("SELECT * FROM Showing WHERE showing_id="+id);
+
+   if(rs!=null){
+    int i = 1;
+    while(rs.next()){
+     m = new Showing(
+             rs.getInt(i++),
+             rs.getTimestamp("showing_datetime").toLocalDateTime(),
+             rs.getInt(i++),
+             rs.getInt(i)
+     );
+    }
+    return m;
+   }
+  }
+
+  catch (SQLException e) {
+   e.printStackTrace();
+  }
+
+  return m;
  }
 
  @Override

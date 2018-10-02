@@ -15,14 +15,11 @@
         <h2>Tid <span th:text="${showing.showingDateTime}"></span></h2>
 
         <form method="post">
-        <input type="hidden" name="reservation" th:value="reservation_id">
-            <input type="text" name="">
+            <input type="text" name="customer_name" th:value="${customer.name}">
+            <input type="text" name="customer_phone" th:value="${customer.phone}">
+            <input type="number" name="customer_seat" th:value="${customer.seat}">
 
-
-
-         th:text="${showing.showingDateTime}">
-
-        <button type="submit" name="showing_id" th:value="${showing.showingId}">Vælg Visning</button>
+        <button type="submit" name="reservation_id" th:value="${reservation_id}">Reserver Billet(ter)</button>
 
         </form>
 

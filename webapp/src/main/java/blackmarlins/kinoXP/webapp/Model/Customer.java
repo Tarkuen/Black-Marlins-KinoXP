@@ -6,6 +6,9 @@ public class Customer {
     private String phone;
     private int seat;
 
+    public Customer() {
+    }
+
     public Customer(String name, String phone, int seat) {
         this.name = name;
         this.phone = phone;

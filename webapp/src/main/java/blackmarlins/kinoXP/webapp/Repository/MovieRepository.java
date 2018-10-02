@@ -27,7 +27,32 @@ public class MovieRepository implements iMovieRepository {
 
     @Override
     public Movie read(int id) {
-        return null;
+        Movie m = new Movie();
+        ResultSet rs;
+
+        try (Connection conn = dataConnection.getConn()){
+
+            Statement statement = conn.createStatement();
+            rs = statement.executeQuery("SELECT * FROM Movie WHERE movie_id="+id);
+
+            if(rs!=null){
+                int i = 1;
+                while(rs.next()){
+                    m = new Movie(
+                            rs.getInt(i++),
+                            rs.getString(i++),
+                            rs.getString(i)
+                    );
+                }
+                return m;
+            }
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return m;
     }
 
     @Override

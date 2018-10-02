@@ -20,11 +20,11 @@
 </thead>
 
     <tbody>
-    <tr th:each=" movie : ${allmovies}">
+    <tr th:each="movie : ${allmovies}">
         <td th:text="${movie.name}"> </td>
         <td th:text="${movie.genre}"> </td>
         <td>
-            <button type="submit" formaction="/allshowings" name="movie_id" value="${movie.id}"> Vælg Film</button>
+            <button type="submit" formaction="/allshowings" name="movie_id" th:value="${movie.id}"> Vælg Film</button>
         </td>
     </tr>
     </tbody>
