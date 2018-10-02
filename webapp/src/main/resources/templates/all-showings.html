@@ -15,7 +15,7 @@
                     </td>
                 </tr>
                 <tr th:each="showing : ${allShowings}">
-                    <td th:text="{{showing.time}}"></td>
+                    <td th:text="${showing.showingDateTime}"></td>
                 </tr>
             </table>
         </div>

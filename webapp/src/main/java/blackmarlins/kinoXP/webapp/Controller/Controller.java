@@ -35,6 +35,7 @@ public class Controller {
     public String showAllShowings(@RequestParam(name = "movie_id") Integer movie_id, Model model) throws SQLException {
         ShowingsRepository showingsRepository = new ShowingsRepository();
         List<Showing> showingList = showingsRepository.readAll(movie_id);
+
         if (showingList != null && showingList.size() > 0) {
             model.addAttribute("allShowings", showingList);
         }

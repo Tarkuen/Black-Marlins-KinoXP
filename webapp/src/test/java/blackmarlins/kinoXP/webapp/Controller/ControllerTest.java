@@ -48,6 +48,9 @@ public class ControllerTest {
 
     @Test
     public void searchForShowings() throws Exception {
+
+
+
     }
 
     @Test
