@@ -10,28 +10,24 @@
 <body>
     <div class="container">
 
-        <h3>Film</h3>
+        <h3>Film <span th:text="${movie.name}"></span></h3>
 
-        <form method="post"></form>
-<table>
+        <h2>Tid <span th:text="${showing.showingDateTime}"></span></h2>
 
-    <thead>
-    <tr>
-     <th>Visningstid</th>
-    </tr>
+        <form method="post">
+        <input type="hidden" name="reservation" th:value="reservation_id">
+            <input type="text" name="">
 
-    </thead>
-    <tbody>
 
-    <tr th:each="showing : ${}">
-        <td th:text="${showing.showingDateTime}"></td>
-        <td>
-            <button type="submit" name="showing_id" th:value="${showing.showingId}">Vælg Visning</button>
-        </td>
-    </tr>
 
-</tbody>
-</table>
+         th:text="${showing.showingDateTime}">
+
+        <button type="submit" name="showing_id" th:value="${showing.showingId}">Vælg Visning</button>
+
+        </form>
+
+
+
 
 
 </div>

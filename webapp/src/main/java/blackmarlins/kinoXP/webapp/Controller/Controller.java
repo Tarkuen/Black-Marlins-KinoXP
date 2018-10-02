@@ -45,10 +45,13 @@ public class Controller {
     @PostMapping(path = "/reseverside")
     public String searchForShowings(@RequestParam(name = "showing_id") Integer showing_id, Model model) throws SQLException {
         ShowingsRepository showingsRepository = new ShowingsRepository();
+        MovieRepository movieRepository = new MovieRepository();
         Showing showing = showingsRepository.read(showing_id);
+        Movie movie = movieRepository.read(showing.getMovieId());
         Reservation reservation = new Reservation(showing);
         model.addAttribute(reservation);
         model.addAttribute("showing", showing);
+        model.addAttribute("movie", movie);
         return "reserverside";
     }
 
