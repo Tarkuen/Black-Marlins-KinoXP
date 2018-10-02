@@ -20,7 +20,7 @@ public class DataConnection {
    private static DataConnection instance;
 
     private DataConnection() {
-        connection= String.format(cONN_String,
+        connection = String.format(cONN_String,
                 endpoint_String,
                 port,
                 schema,

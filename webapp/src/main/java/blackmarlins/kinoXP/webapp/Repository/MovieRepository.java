@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieRepository implements IMovieRepository {
+public class MovieRepository implements iMovieRepository {
 
     private DataConnection dataConnection;
 
