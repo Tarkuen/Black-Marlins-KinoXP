@@ -4,7 +4,6 @@ import blackmarlins.kinoXP.webapp.Model.Customer;
 import blackmarlins.kinoXP.webapp.Model.Movie;
 import blackmarlins.kinoXP.webapp.Model.Reservation;
 import blackmarlins.kinoXP.webapp.Model.Showing;
-import blackmarlins.kinoXP.webapp.Repository.DataConnection;
 import blackmarlins.kinoXP.webapp.Repository.MovieRepository;
 import blackmarlins.kinoXP.webapp.Repository.ReservationRepository;
 import blackmarlins.kinoXP.webapp.Repository.ShowingsRepository;
@@ -12,9 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.sql.Connection;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
@@ -26,18 +24,19 @@ public class Controller {
         List<Movie> movieList = movieRepository.readAll(0);
         if (movieList != null && movieList.size() > 0) {
 
-            model.addAttribute("allMovies", movieList);
+            model.addAttribute("allmovies", movieList);
         }
-        return "Test";
+        return "test";
     }
 
-    @PostMapping(path = "/Allshowings")
+
+    @PostMapping(path = "/allshowings")
     public String showAllShowings(@RequestParam(name = "movie_id") Integer movie_id, Model model) throws SQLException {
         ShowingsRepository showingsRepository = new ShowingsRepository();
         List<Showing> showingList = showingsRepository.readAll(movie_id);
 
         if (showingList != null && showingList.size() > 0) {
-            model.addAttribute("allShowings", showingList);
+            model.addAttribute("allshowings", showingList);
         }
         return "all-showings";
     }
@@ -55,7 +54,7 @@ public class Controller {
         return "reserverside";
     }
 
-    @PostMapping(path = "/successfullReservation")
+    @PostMapping(path = "/successfulreservation")
     public String reservationSuccess(@RequestParam(name = "reservation_id") Reservation reservation,
                                      @RequestParam(name = "customer_phone") String customer_phone,
                                      @RequestParam(name = "customer_name") String customer_name,
@@ -67,7 +66,7 @@ public class Controller {
         reservation = new Reservation(customer, showing);
         reservationRepository.create(reservation);
 
-        return "Test";
+        return "successfulreservation";
     }
 }
 

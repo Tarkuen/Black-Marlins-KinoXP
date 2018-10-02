@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/Test.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -13,19 +13,18 @@
 <table id="myTable">
 <thead>
     <tr>
+        <th><input class="btn" type="button" value="Navn" onclick="sortTable(this.value)"></th>
         <th><input class="btn" type="button" value="Genre" onclick="sortTable(this.value)"></th>
-        <th><input class="btn" type="button" value="Dato" onclick="sortTable(this.value)"></th>
-        <th><input class="btn" type="button" value="start tidspunkt" onclick="sortTable(this.value)"></th>
         <th></th>
     </tr>
 </thead>
 
     <tbody>
-    <tr th:each=" movie : ${allMovies}">
+    <tr th:each=" movie : ${allmovies}">
         <td th:text="${movie.name}"> </td>
         <td th:text="${movie.genre}"> </td>
         <td>
-            <button type="submit" formaction="/Allshowings" name="movie_id" th:value="${movie.id}"> Vælg Film</button>
+            <button type="submit" formaction="/allshowings" name="movie_id" value="${movie.id}"> Vælg Film</button>
         </td>
     </tr>
     </tbody>
@@ -38,12 +37,13 @@
         var table, rows, switching, i, x, y, shouldSwitch,t;
         table = document.getElementById("myTable");
         t = 10;
-        if(!"Name".localeCompare(val)){
+        if(!"Navn".localeCompare(val)){
             t = 0;
         }
-        if(!"Country".localeCompare(val)){
+        if(!"Genre".localeCompare(val)){
             t = 1;
         }
+
         switching = true;
         /*Make a loop that will continue until
         no switching has been done:*/
