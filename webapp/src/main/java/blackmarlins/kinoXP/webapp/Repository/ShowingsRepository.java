@@ -60,6 +60,47 @@ public class ShowingsRepository implements IShowingRepository {
  }
 
  @Override
+ public int fetchReservation(int showingId, int cinemaId) {
+     ResultSet rs = null;
+     int remainingSeats;
+
+  try (Connection conn = databaseConnection.getConn()) {
+      PreparedStatement pstms = conn.prepareStatement(
+                 "SELECT reservation_customer_seat, cinema_seats\n" +
+                         "FROM Showing " +
+                         "INNER JOIN Reservation ON ? = fk_showing_id " +
+                         "INNER JOIN CinemaHall ON ? = cinema_id");
+         pstms.setInt(1, showingId);
+         pstms.setInt(2, cinemaId);
+         rs = pstms.executeQuery();
+         while (rs.next()) {
+             remainingSeats = rs.getInt("cinema_seats")-
+                        rs.getInt("reservation_customer_seat");
+
+                return remainingSeats;
+         }
+   } catch (SQLException ex) {
+         ex.printStackTrace();
+   }
+    try (Connection conn = databaseConnection.getConn()) {
+         PreparedStatement pstms = conn.prepareStatement(
+                  "SELECT cinema_seats\n" +
+                          "FROM Showing " +
+                          "INNER JOIN CinemaHall ON ? = cinema_id");
+         pstms.setInt(1, cinemaId);
+         rs = pstms.executeQuery();
+         while (rs.next()) {
+                remainingSeats = rs.getInt("cinema_seats");
+
+                return remainingSeats;
+         }
+    } catch (SQLException ex) {
+             ex.printStackTrace();
+    }
+     return 0;
+ }
+
+ @Override
  public void update(int id) {
 
  }

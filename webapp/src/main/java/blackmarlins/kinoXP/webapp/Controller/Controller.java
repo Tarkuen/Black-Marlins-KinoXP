@@ -36,6 +36,18 @@ public class Controller {
         List<Showing> showingList = showingsRepository.readAll(movie_id);
 
         if (showingList != null && showingList.size() > 0) {
+            for (int i = 0; i < showingList.size(); i++) {
+                int showingId = showingList.get(i).getShowingId();
+                int cinemaId = showingList.get(i).getCinemaId();
+
+                showingList.get(i).setRemainingSeats(showingsRepository.fetchReservation(showingId, cinemaId));
+                System.out.println(showingList.get(i).getRemainingSeats());
+
+            }
+        }
+
+
+        if (showingList != null && showingList.size() > 0) {
             model.addAttribute("allshowings", showingList);
         }
         return "all-showings";
