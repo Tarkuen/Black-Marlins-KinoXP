@@ -41,7 +41,7 @@ public class MovieRepository implements IMovieRepository {
 
             PreparedStatement pstms = conn.prepareStatement("DELETE FROM blackmarlinsdb.Showing WHERE =" + id);
             pstms.executeUpdate();
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

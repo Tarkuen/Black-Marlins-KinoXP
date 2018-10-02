@@ -5,7 +5,7 @@ import blackmarlins.kinoXP.webapp.Model.Reservation;
 import java.sql.Date;
 import java.util.List;
 
-public interface iReservationRepository {
+public interface IReservationRepository {
 
     public void create(Reservation reservation);
     public Reservation read(int id);

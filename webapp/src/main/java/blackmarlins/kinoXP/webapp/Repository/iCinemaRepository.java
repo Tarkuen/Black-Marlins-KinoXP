@@ -5,7 +5,7 @@ import blackmarlins.kinoXP.webapp.Model.Movie;
 
 import java.util.List;
 
-public interface iCinemaRepository {
+public interface ICinemaRepository {
 
     public Cinema read(int id);
 
