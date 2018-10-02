@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" type="text/css" href="../static/css/Test.css">
 <head>
     <meta charset="UTF-8">
@@ -8,22 +8,7 @@
     <html>
     <head>
         <title>Sort a HTML Table Alphabetically</title>
-        <style>
-            table {
-                border-spacing: 0;
-                width: 100%;
-                border: 1px solid #ddd;
-            }
 
-            th, td {
-                text-align: left;
-                padding: 16px;
-            }
-
-            tr:nth-child(even) {
-                background-color: #f2f2f2
-            }
-        </style>
     </head>
 <body>
 
@@ -32,6 +17,7 @@
 <table id="myTable">
     <tr>
         <th><input class="btn" type="button" value="Name" onclick="sortTable(this.value)"></th>
+<<<<<<< Updated upstream
         <th><input class="btn" type="button" value="Country" onclick="sortTable(this.value)"></th>
     </tr>
     <tr th:each ="Movie : $(movie">
@@ -54,19 +40,20 @@
     <tr>
         <td>Magazzini Alimentari Riuniti</td>
         <td>Italy</td>
+=======
+        <th><input class="btn" type="button" value="Genre" onclick="sortTable(this.value)"></th>
+        <th><input class="btn" type="button" value="Dato" onclick="sortTable(this.value)"></th>
+        <th><input class="btn" type="button" value="start tidspunkt" onclick="sortTable(this.value)"></th>
+        <th></th>
+>>>>>>> Stashed changes
     </tr>
-    <tr>
-        <td>Paris specialites</td>
-        <td>France</td>
+    <tr th:each="Movie : ${Movie_Data}">
+        <td th:text="${Movie.movie_name}"> </td>
+        <td th:text="${Movie.movie_genre}"> </td>
+
+
     </tr>
-    <tr>
-        <td>Island Trading</td>
-        <td>UK</td>
-    </tr>
-    <tr>
-        <td>Laughing Bacchus Winecellars</td>
-        <td>Canada</td>
-    </tr>
+
 </table>
 
 <script>
