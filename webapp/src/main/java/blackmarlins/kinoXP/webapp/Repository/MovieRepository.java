@@ -33,7 +33,7 @@ public class MovieRepository implements iMovieRepository {
         try (Connection conn = dataConnection.getConn()){
 
             Statement statement = conn.createStatement();
-            rs = statement.executeQuery("SELECT * FROM Movie WHERE movie_id="+id);
+            rs = statement.executeQuery("SELECT movie_id, movie_name, movie_genre FROM Movie WHERE movie_id="+id);
 
             if(rs!=null){
                 int i = 1;

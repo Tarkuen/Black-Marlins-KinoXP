@@ -35,14 +35,14 @@ public class ShowingsRepository implements IShowingRepository {
   try (Connection conn = databaseConnection.getConn()){
 
    Statement statement = conn.createStatement();
-   rs = statement.executeQuery("SELECT * FROM Showing WHERE showing_id="+id);
+   rs = statement.executeQuery("SELECT showing_id, showing_datetime, fk_movie_id, fk_cinema_id FROM Showing WHERE showing_id="+id);
 
    if(rs!=null){
     int i = 1;
     while(rs.next()){
      m = new Showing(
              rs.getInt(i++),
-             rs.getTimestamp("showing_datetime").toLocalDateTime(),
+             rs.getTimestamp(i++).toLocalDateTime(),
              rs.getInt(i++),
              rs.getInt(i)
      );
