@@ -32,6 +32,7 @@ public class ShowingsRepository implements IShowingRepository {
   Showing m = new Showing();
   ResultSet rs;
 
+  int checker = 1;
   try (Connection conn = databaseConnection.getConn()){
 
    Statement statement = conn.createStatement();
