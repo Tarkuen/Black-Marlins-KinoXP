@@ -31,7 +31,6 @@ public class Controller {
         return "Test";
     }
 
-
     @PostMapping(path = "/Allshowings")
     public String showAllShowings(@RequestParam(name = "movie_id") Integer movie_id, Model model) throws SQLException {
         ShowingsRepository showingsRepository = new ShowingsRepository();
@@ -49,7 +48,7 @@ public class Controller {
         Showing showing = showingsRepository.read(showing_id);
         Reservation reservation = new Reservation(showing);
         model.addAttribute(reservation);
-
+        model.addAttribute("showing", showing);
         return "reserverside";
     }
 
@@ -65,7 +64,7 @@ public class Controller {
         reservation = new Reservation(customer, showing);
         reservationRepository.create(reservation);
 
-        return "successfullReservation";
+        return "Test";
     }
 }
 

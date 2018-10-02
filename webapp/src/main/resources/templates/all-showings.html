@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
-        <link rel="stylesheet" type="text/css" href="../static/css/Test.css">
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
     </head>
     <body>
         <div class="content">
+            <form method="post" action="@{/reserverside}">
             <table>
                 <!--<h1 th:text="${}"></h1>-->
                 <tr>
@@ -16,8 +17,13 @@
                 </tr>
                 <tr th:each="showing : ${allShowings}">
                     <td th:text="${showing.showingDateTime}"></td>
+                    <td th:text="${showing.cinemaId}"></td>
+                    <td>
+                        <button type="submit" formaction="/reserverside" name="showing_id" th:value="${showing.showingId}">Vælg Visning</button>
+                    </td>
                 </tr>
             </table>
+            </form>
         </div>
     </body>
 </html>

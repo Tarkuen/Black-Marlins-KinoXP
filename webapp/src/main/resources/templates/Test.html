@@ -9,7 +9,7 @@
 <body>
 <p>Click the button to sort the table alphabetically, by name:</p>
 
-<form method="post" action="all-showings.html">
+<form method="post">
 <table id="myTable">
 <thead>
     <tr>
@@ -25,7 +25,7 @@
         <td th:text="${movie.name}"> </td>
         <td th:text="${movie.genre}"> </td>
         <td>
-            <button type="submit" formaction="/allShowings" name="movie_id" value="${movie.id}"> Vælg Film</button>
+            <button type="submit" formaction="/Allshowings" name="movie_id" th:value="${movie.id}"> Vælg Film</button>
         </td>
     </tr>
     </tbody>

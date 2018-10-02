@@ -4,35 +4,33 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
+
+
 <body>
     <div class="container">
 
         <h3>Film</h3>
+
+        <form method="post"></form>
 <table>
 
     <thead>
     <tr>
-        <th>Dato</th>
-        <th>Tid</th>
-        <th></th>
+     <th>Visningstid</th>
     </tr>
 
-
     </thead>
-<tbody>
+    <tbody>
 
-<td th:text="26-07-2018"></td>
-<td th:text="12.30"></td>
+    <tr th:each="showing : ${}">
+        <td th:text="${showing.showingDateTime}"></td>
+        <td>
+            <button type="submit" name="showing_id" th:value="${showing.showingId}">Vælg Visning</button>
+        </td>
+    </tr>
 
-<td>
-    <a href="/reseverdone" class="btn btn-lilleknap">reserver</a>
-
-</td>
 </tbody>
-
-
 </table>
 
 
