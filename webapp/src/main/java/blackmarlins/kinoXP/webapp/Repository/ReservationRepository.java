@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public class ReservationRepository implements iReservationRepository {
+public class ReservationRepository implements IReservationRepository {
 
 
     private DataConnection dataConnection;

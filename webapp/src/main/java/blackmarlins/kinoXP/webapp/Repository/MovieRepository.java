@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieRepository implements IMovieRepository {
+public class MovieRepository implements iMovieRepository {
 
     private DataConnection dataConnection;
 
@@ -41,7 +41,7 @@ public class MovieRepository implements IMovieRepository {
 
             PreparedStatement pstms = conn.prepareStatement("DELETE FROM blackmarlinsdb.Showing WHERE =" + id);
             pstms.executeUpdate();
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

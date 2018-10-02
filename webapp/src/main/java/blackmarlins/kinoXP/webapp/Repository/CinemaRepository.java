@@ -4,10 +4,9 @@ import blackmarlins.kinoXP.webapp.Model.Cinema;
 import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
-import java.util.List;
 
 @Repository
-public class CinemaRepository implements iCinemaRepository {
+public class CinemaRepository implements ICinemaRepository {
 
     private DataConnection dataConnection;
 
