@@ -42,7 +42,7 @@ public class Controller {
                 int cinemaId = showingList.get(i).getCinemaId();
 
                 showingList.get(i).setRemainingSeats(showingsRepository.fetchReservation(showingId, cinemaId));
-                System.out.println(showingList.get(i).getRemainingSeats());
+
 
             }
         }
@@ -60,8 +60,6 @@ public class Controller {
         MovieRepository movieRepository = new MovieRepository();
         Showing showing = showingsRepository.read(showing_id);
         Movie movie = movieRepository.read(showing.getMovieId());
-//        Reservation reservation = new Reservation(showing);
-//        model.addAttribute("reservation", reservation);
         model.addAttribute("showing", showing);
         model.addAttribute("movie", movie);
         Customer c = new Customer("","",0);
