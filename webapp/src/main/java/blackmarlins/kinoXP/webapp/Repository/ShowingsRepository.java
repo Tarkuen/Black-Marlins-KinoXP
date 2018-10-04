@@ -61,41 +61,48 @@ public class ShowingsRepository implements IShowingRepository {
  @Override
  public int fetchReservation(int showingId, int cinemaId) {
      ResultSet rs = null;
-     int remainingSeats;
-
-  try (Connection conn = databaseConnection.getConn()) {
-      PreparedStatement pstms = conn.prepareStatement(
-                 "SELECT reservation_customer_seat, cinema_seats\n" +
-                         "FROM Showing " +
-                         "INNER JOIN Reservation ON ? = fk_showing_id " +
-                         "INNER JOIN CinemaHall ON ? = cinema_id");
-         pstms.setInt(1, showingId);
-         pstms.setInt(2, cinemaId);
-         rs = pstms.executeQuery();
-         while (rs.next()) {
-             remainingSeats = rs.getInt("cinema_seats")-
-                        rs.getInt("reservation_customer_seat");
-
-                return remainingSeats;
-         }
-   } catch (SQLException ex) {
-         ex.printStackTrace();
-   }
-    try (Connection conn = databaseConnection.getConn()) {
+     int remainingSeats = 0;
+     int cinemaSeats= 0;
+     try (Connection conn = databaseConnection.getConn()) {
          PreparedStatement pstms = conn.prepareStatement(
-                  "SELECT cinema_seats\n" +
-                          "FROM Showing " +
-                          "INNER JOIN CinemaHall ON ? = cinema_id");
+                 "SELECT cinema_seats\n" +
+                         "FROM Showing " +
+                         "INNER JOIN CinemaHall ON ? = cinema_id");
          pstms.setInt(1, cinemaId);
          rs = pstms.executeQuery();
          while (rs.next()) {
-                remainingSeats = rs.getInt("cinema_seats");
-
-                return remainingSeats;
+             cinemaSeats = rs.getInt("cinema_seats");
          }
-    } catch (SQLException ex) {
-             ex.printStackTrace();
-    }
+     } catch (SQLException ex) {
+         System.out.println("Error fetching cinema seats");
+         ex.printStackTrace();
+     }
+
+  try (Connection conn = databaseConnection.getConn()) {
+
+         Statement statement2 = conn.createStatement();
+      rs = statement2.executeQuery("SELECT reservation_customer_seat\n" +
+                 "FROM Reservation WHERE fk_showing_id="+showingId);
+
+         while (rs.next()) {
+             int temp = rs.getInt("reservation_customer_seat");
+             remainingSeats= remainingSeats+temp;
+         }
+
+         remainingSeats = cinemaSeats -remainingSeats;
+         if(remainingSeats==0){
+             return  cinemaSeats;
+         }
+         else{
+             return remainingSeats;
+         }
+
+   } catch (SQLException ex) {
+         ex.printStackTrace();
+   }
+
+
+
      return 0;
  }
 
