@@ -2,82 +2,31 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <title>KinoXP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/scripts/script.js"></script>
 </head>
 
 <body>
-<p>Click the button to sort the table alphabetically, by name:</p>
-
-<form method="post">
-<table id="myTable">
-<thead>
-    <tr>
-        <th><input class="btn" type="button" value="Navn" onclick="sortTable(this.value)"></th>
-        <th><input class="btn" type="button" value="Genre" onclick="sortTable(this.value)"></th>
-    </tr>
-</thead>
-
-    <tbody>
-    <tr th:each="movie : ${allmovies}">
-        <td th:text="${movie.name}"> </td>
-        <td th:text="${movie.genre}"> </td>
-        <td> <img th:src="${movie.img}" height="60"> </td>
-        <td>
-            <button type="submit" formaction="/allshowings" name="movie_id" th:value="${movie.id}"> Vælg Film</button>
-        </td>
-    </tr>
-    </tbody>
-</table>
-</form>
-    <form method="get">
-        <button class="btn" type="submit" formaction="/tilføj">Tilføj film</button>
+    <div class="container">
+    <form method="post">
+        <table id="myTable">
+            <thead>
+                <tr>
+                <th><input type="button" value="Navn" onclick="sortTable(this.value)"></th>
+                <th><input type="button" value="Genre" onclick="sortTable(this.value)"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="movie : ${allmovies}">
+                    <td>
+                        <button type="submit" formaction="/allshowings" name="movie_id" th:value="${movie.id}" th:text="${movie.name}"></button>
+                    </td>
+                    <td th:text="${movie.genre}"> </td>
+                </tr>
+            </tbody>
+        </table>
     </form>
-
-<script>
-
-    function sortTable(val) {
-        var table, rows, switching, i, x, y, shouldSwitch,t;
-        table = document.getElementById("myTable");
-        t = 10;
-        if(!"Navn".localeCompare(val)){
-            t = 0;
-        }
-        if(!"Genre".localeCompare(val)){
-            t = 1;
-        }
-
-        switching = true;
-        /*Make a loop that will continue until
-        no switching has been done:*/
-        while (switching) {
-            //start by saying: no switching is done:
-            switching = false;
-            rows = table.rows;
-            /*Loop through all table rows (except the
-            first, which contains table headers):*/
-            for (i = 1; i < (rows.length - 1); i++) {
-                //start by saying there should be no switching:
-                shouldSwitch = false;
-                /*Get the two elements you want to compare,
-                one from current row and one from the next:*/
-                x = rows[i].getElementsByTagName("TD")[t];
-                y = rows[i + 1].getElementsByTagName("TD")[t];
-                //check if the two rows should switch place:
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    //if so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-            if (shouldSwitch) {
-                /*If a switch has been marked, make the switch
-                and mark that a switch has been done:*/
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-            }
-        }
-    }
-</script>
+    </div>
 </body>
 </html>
