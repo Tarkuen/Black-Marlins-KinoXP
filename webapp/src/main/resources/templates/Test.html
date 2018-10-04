@@ -19,7 +19,7 @@
             <tbody>
                 <tr th:each="movie : ${allmovies}">
                     <td>
-                        <button type="submit" formaction="/allshowings" name="movie_id" th:value="${movie.id}" th:text="${movie.name}"></button>
+                        <button type="submit" formaction="/allshowings" name="movie_id" th:text="${movie.name}"></button>
                     </td>
                     <td th:text="${movie.genre}"> </td>
                 </tr>
