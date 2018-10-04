@@ -21,7 +21,26 @@ public class MovieRepository implements iMovieRepository {
     }
 
     @Override
-    public void create(String movie_name, String movie_genre) {
+    public void create(String movie_name, String movie_genre, String movie_img) {
+
+        try (Connection conn = dataConnection.getConn()) {
+            conn.setAutoCommit(false);
+            conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+
+
+            PreparedStatement pstmt = conn.prepareStatement
+                    ("INSERT INTO blackmarlinsdb.Movie(movie_name, movie_genre, movie_img) VALUES(?,?,?);");
+            pstmt.setString(1, movie_name);
+            pstmt.setString(2, movie_genre);
+            pstmt.setString(3, movie_img);
+
+            pstmt.execute();
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+        }
 
     }
 
@@ -64,7 +83,7 @@ public class MovieRepository implements iMovieRepository {
     public void delete(int id) {
         try (Connection conn = dataConnection.getConn()) {
 
-            PreparedStatement pstms = conn.prepareStatement("DELETE FROM blackmarlinsdb.Showing WHERE =" + id);
+            PreparedStatement pstms = conn.prepareStatement("DELETE FROM blackmarlinsdb.Showing WHERE showing_idh =" + id);
             pstms.executeUpdate();
 
         } catch (SQLException ex) {
