@@ -68,9 +68,8 @@ public class ShowingsRepository implements IShowingRepository {
 
          Statement statement = conn.createStatement();
          rs= statement.executeQuery("SELECT cinema_seats\n" +
-                 "FROM Showing " +
-                 "INNER JOIN CinemaHall ON ? = cinema_id");
-         
+                 "FROM CinemaHall WHERE cinema_id="+cinemaId);
+
          while (rs.next()) {
              cinemaSeats = rs.getInt("cinema_seats");
          }
