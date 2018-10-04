@@ -1,12 +1,7 @@
 package blackmarlins.kinoXP.webapp.Controller;
 
-import blackmarlins.kinoXP.webapp.Model.Customer;
-import blackmarlins.kinoXP.webapp.Model.Movie;
-import blackmarlins.kinoXP.webapp.Model.Reservation;
-import blackmarlins.kinoXP.webapp.Model.Showing;
-import blackmarlins.kinoXP.webapp.Repository.MovieRepository;
-import blackmarlins.kinoXP.webapp.Repository.ReservationRepository;
-import blackmarlins.kinoXP.webapp.Repository.ShowingsRepository;
+import blackmarlins.kinoXP.webapp.Model.*;
+import blackmarlins.kinoXP.webapp.Repository.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -97,7 +92,7 @@ public class Controller {
 
         movieRepository.create(movieName, movieGenre, movieImg);
 
-        return "tilføj";
+        return "redirect:/";
     }
 //    @PostMapping(path = "/successfulreservation")
 //    public String reservationSuccess(@RequestParam(name = "movie_name") String movie_name,

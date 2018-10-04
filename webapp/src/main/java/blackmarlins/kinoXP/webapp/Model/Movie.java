@@ -4,8 +4,11 @@ public class Movie {
     int id;
     String name;
     String genre;
-    String imgSource;
+    String img;
 
+    public String getImg() {
+        return img;
+    }
 
     public Movie() {
     }
@@ -18,11 +21,11 @@ public class Movie {
         return name;
     }
 
-    public Movie(int id, String name, String genre, String imgSource) {
+    public Movie(int id, String name, String genre, String img) {
         this.id = id;
         this.name = name;
         this.genre = genre;
-        this.imgSource = imgSource;
+        this.img = img;
     }
 
     public Movie(int id, String name, String genre) {

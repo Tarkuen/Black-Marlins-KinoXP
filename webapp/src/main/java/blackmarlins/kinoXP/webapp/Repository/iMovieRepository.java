@@ -4,7 +4,7 @@ import blackmarlins.kinoXP.webapp.Model.Movie;
 
 import java.util.List;
 
-public interface iMovieRepository {
+public interface IMovieRepository {
 
     public void create(String movie_name, String movie_genre, String movie_img);
     public Movie read(int id);

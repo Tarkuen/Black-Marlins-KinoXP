@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieRepository implements iMovieRepository {
+public class MovieRepository implements IMovieRepository {
 
     private DataConnection dataConnection;
 
@@ -79,6 +79,9 @@ public class MovieRepository implements iMovieRepository {
 
     }
 
+
+
+
     @Override
     public void delete(int id) {
         try (Connection conn = dataConnection.getConn()) {
@@ -102,7 +105,7 @@ public class MovieRepository implements iMovieRepository {
             List<Movie> r = new ArrayList<>();
             ResultSet rs = null;
         try (Connection conn = dataConnection.getConn()) {
-            PreparedStatement pstms = conn.prepareStatement("SELECT movie_id, movie_name, movie_genre FROM blackmarlinsdb.Movie");
+            PreparedStatement pstms = conn.prepareStatement("SELECT movie_id, movie_name, movie_genre, movie_img FROM blackmarlinsdb.Movie");
             rs = pstms.executeQuery();
 
 
@@ -112,6 +115,7 @@ public class MovieRepository implements iMovieRepository {
 
                 Movie es = new Movie(
                         rs.getInt(i++),
+                        rs.getString(i++),
                         rs.getString(i++),
                         rs.getString(i)
                 );

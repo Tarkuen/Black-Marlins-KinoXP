@@ -15,7 +15,6 @@
     <tr>
         <th><input class="btn" type="button" value="Navn" onclick="sortTable(this.value)"></th>
         <th><input class="btn" type="button" value="Genre" onclick="sortTable(this.value)"></th>
-        <th></th>
     </tr>
 </thead>
 
@@ -23,6 +22,7 @@
     <tr th:each="movie : ${allmovies}">
         <td th:text="${movie.name}"> </td>
         <td th:text="${movie.genre}"> </td>
+        <td> <img th:src="${movie.img}" height="60"> </td>
         <td>
             <button type="submit" formaction="/allshowings" name="movie_id" th:value="${movie.id}"> Vælg Film</button>
         </td>
@@ -30,6 +30,9 @@
     </tbody>
 </table>
 </form>
+    <form method="get">
+        <button class="btn" type="submit" formaction="/tilføj">Tilføj film</button>
+    </form>
 
 <script>
 
