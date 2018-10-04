@@ -63,13 +63,14 @@ public class ShowingsRepository implements IShowingRepository {
      ResultSet rs = null;
      int remainingSeats = 0;
      int cinemaSeats= 0;
+
      try (Connection conn = databaseConnection.getConn()) {
-         PreparedStatement pstms = conn.prepareStatement(
-                 "SELECT cinema_seats\n" +
-                         "FROM Showing " +
-                         "INNER JOIN CinemaHall ON ? = cinema_id");
-         pstms.setInt(1, cinemaId);
-         rs = pstms.executeQuery();
+
+         Statement statement = conn.createStatement();
+         rs= statement.executeQuery("SELECT cinema_seats\n" +
+                 "FROM Showing " +
+                 "INNER JOIN CinemaHall ON ? = cinema_id");
+         
          while (rs.next()) {
              cinemaSeats = rs.getInt("cinema_seats");
          }
