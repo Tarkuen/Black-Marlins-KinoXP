@@ -4,6 +4,7 @@ public class Movie {
     int id;
     String name;
     String genre;
+    String imgSource;
 
 
     public Movie() {
@@ -15,6 +16,13 @@ public class Movie {
 
     public String getName() {
         return name;
+    }
+
+    public Movie(int id, String name, String genre, String imgSource) {
+        this.id = id;
+        this.name = name;
+        this.genre = genre;
+        this.imgSource = imgSource;
     }
 
     public Movie(int id, String name, String genre) {

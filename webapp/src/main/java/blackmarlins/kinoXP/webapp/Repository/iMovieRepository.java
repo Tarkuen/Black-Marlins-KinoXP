@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface iMovieRepository {
 
-    public void create(String movie_name, String movie_genre);
+    public void create(String movie_name, String movie_genre, String movie_img);
     public Movie read(int id);
     public void update(int id);
     public void delete(int id);

@@ -85,5 +85,33 @@ public class Controller {
 
         return "redirect:/";
     }
+
+    @GetMapping(path= "/tilføj")
+    public String addmovie(){return "tilføj";}
+
+    @PostMapping(path = "/tilføj")
+    public String addMovie(@ModelAttribute("movie_name") String movieName,
+                           @ModelAttribute("movie_genre") String movieGenre,
+                           @ModelAttribute("movie_img") String movieImg) throws SQLException {
+        MovieRepository movieRepository = new MovieRepository();
+
+        movieRepository.create(movieName, movieGenre, movieImg);
+
+        return "tilføj";
+    }
+//    @PostMapping(path = "/successfulreservation")
+//    public String reservationSuccess(@RequestParam(name = "movie_name") String movie_name,
+//                                     @RequestParam(name = "movie_ganre") String movie_genre,
+//                                     @RequestParam(name = "movie_img") String movie_img) throws SQLException {
+//
+//        ReservationRepository reservationRepository = new ReservationRepository();
+//        Customer customer = new Customer(customer_phone, customer_name, customer_seat);
+//        Showing showing = reservation.getShowing();
+//        reservation = new Reservation(customer, showing);
+//        reservationRepository.create(reservation);
+//
+//        return "successfulreservation";
+//    }
+
 }
 

@@ -10,7 +10,6 @@ public class CinemaRepository implements ICinemaRepository {
 
     private DataConnection dataConnection;
 
-
     public CinemaRepository() throws SQLException {
         dataConnection = DataConnection.getInstance();
     }
