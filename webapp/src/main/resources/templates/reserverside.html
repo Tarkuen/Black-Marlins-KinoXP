@@ -18,8 +18,7 @@
             <input type="text" name="customer_name" th:value="${customer.name}" placeholder="Navn" required>
             <input type="tel" name="customer_phone" th:value="${customer.phone}" placeholder="Telefon Nr" required>
             <input type="text" name="customer_seat" th:value="${customer.seat}" placeholder="Antal Sæder" required>
-
-        <button type="submit" name="reservation_id" th:value="${reservation_id}">Reserver Billet</button>
+            <button type="submit" formaction="/successfulreservation" name="showing_id" th:value="${showing.showingId}">Reserver Billet</button>
 
         </form>
 

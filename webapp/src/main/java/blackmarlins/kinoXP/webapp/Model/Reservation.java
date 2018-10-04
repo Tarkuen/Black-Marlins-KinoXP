@@ -7,6 +7,23 @@ public class Reservation {
     private Customer customer;
     private Showing showing;
 
+    private String customer_phone;
+    private String customer_name;
+    private int customer_seat;
+    private int showing_id;
+
+
+    public Reservation() {
+    }
+
+    public Reservation(int id, String customer_phone, String customer_name, int customer_seat, int showing_id) {
+        this.id = id;
+        this.customer_phone = customer_phone;
+        this.customer_name = customer_name;
+        this.customer_seat = customer_seat;
+        this.showing_id = showing_id;
+    }
+
     public Reservation(Movie movie, Customer customer, Showing showing) {
         this.movie = movie;
         this.customer = customer;

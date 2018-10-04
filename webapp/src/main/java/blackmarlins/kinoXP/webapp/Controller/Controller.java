@@ -9,6 +9,7 @@ import blackmarlins.kinoXP.webapp.Repository.ReservationRepository;
 import blackmarlins.kinoXP.webapp.Repository.ShowingsRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,7 +27,7 @@ public class Controller {
 
             model.addAttribute("allmovies", movieList);
         }
-        return "test";
+        return "index";
     }
 
 
@@ -47,8 +48,8 @@ public class Controller {
         MovieRepository movieRepository = new MovieRepository();
         Showing showing = showingsRepository.read(showing_id);
         Movie movie = movieRepository.read(showing.getMovieId());
-        Reservation reservation = new Reservation(showing);
-        model.addAttribute(reservation);
+//        Reservation reservation = new Reservation(showing);
+//        model.addAttribute("reservation", reservation);
         model.addAttribute("showing", showing);
         model.addAttribute("movie", movie);
         Customer c = new Customer("","",0);
@@ -57,18 +58,22 @@ public class Controller {
     }
 
     @PostMapping(path = "/successfulreservation")
-    public String reservationSuccess(@RequestParam(name = "reservation_id") Reservation reservation,
+    public String reservationSuccess(
+//            @RequestParam("reservation") Reservation reservation,
+
+                                     @RequestParam("showing_id") int showing_id,
                                      @RequestParam(name = "customer_phone") String customer_phone,
                                      @RequestParam(name = "customer_name") String customer_name,
                                      @RequestParam(name = "customer_seat") int customer_seat) throws SQLException {
 
+        ShowingsRepository showingsRepository = new ShowingsRepository();
+        Showing showing = showingsRepository.read(showing_id);
         ReservationRepository reservationRepository = new ReservationRepository();
         Customer customer = new Customer(customer_phone, customer_name, customer_seat);
-        Showing showing = reservation.getShowing();
-        reservation = new Reservation(customer, showing);
+        Reservation reservation = new Reservation(customer, showing);
         reservationRepository.create(reservation);
 
-        return "successfulreservation";
+        return "redirect:/";
     }
 }
 

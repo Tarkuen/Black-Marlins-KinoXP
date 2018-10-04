@@ -5,6 +5,7 @@ public class Movie {
     String name;
     String genre;
 
+
     public Movie() {
     }
 
