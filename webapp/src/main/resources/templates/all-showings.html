@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
-        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <div class="content">
@@ -20,6 +20,7 @@
                 <tr th:each="showing : ${allshowings}">
                     <td th:text="${showing.showingDateTime}"></td>
                     <td th:text="${showing.cinemaId}"></td>
+                    <td th:text="${showing.remainingSeats}"></td>
                     <td>
                         <button type="submit" formaction="/reseverside" name="showing_id" th:value="${showing.showingId}">Vælg Visning</button>
                     </td>

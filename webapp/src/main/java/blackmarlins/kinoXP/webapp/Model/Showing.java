@@ -10,6 +10,7 @@ public class Showing {
     LocalDateTime showingDateTime;
     int movieId;
     int cinemaId;
+    int remainingSeats;
 
     public Showing() {
     }
@@ -53,7 +54,15 @@ public class Showing {
         this.cinemaId = cinemaId;
     }
 
-/*    @Override
+    public void setRemainingSeats(int remainingSeats) {
+        this.remainingSeats = remainingSeats;
+    }
+
+    public int getRemainingSeats() {
+        return remainingSeats;
+    }
+
+    /*    @Override
     public String toString() {
         return "Showing{" +
                 "name='" + name + '\'' +
