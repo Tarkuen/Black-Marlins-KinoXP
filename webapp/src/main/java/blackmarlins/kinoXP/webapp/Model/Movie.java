@@ -34,6 +34,22 @@ public class Movie {
         this.genre = genre;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     public int getId() {
         return id;
     }

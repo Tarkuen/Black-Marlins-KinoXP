@@ -15,6 +15,18 @@ public class Customer {
         this.seat = seat;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setSeat(int seat) {
+        this.seat = seat;
+    }
+
     public String getName() {
         return name;
     }
