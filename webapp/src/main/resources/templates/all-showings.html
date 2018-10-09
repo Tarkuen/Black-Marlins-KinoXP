@@ -6,13 +6,19 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <div class="content">
+        <div class="container">
             <form method="post" >
             <table>
                 <thead>
                 <tr>
                     <td>
                         <input class="btn" type="button" value="Time">
+                    </td>
+                    <td>
+                        <input class="btn" type="button" value="Sal">
+                    </td>
+                    <td>
+                        <input class="btn" type="button" value="Ledige pladser">
                     </td>
                 </tr>
                 </thead>
@@ -22,7 +28,7 @@
                     <td th:text="${showing.cinemaId}"></td>
                     <td th:text="${showing.remainingSeats}"></td>
                     <td>
-                        <button type="submit" formaction="/reseverside" name="showing_id" th:value="${showing.showingId}">Vælg Visning</button>
+                        <button type="submit" id="moviename" formaction="/reseverside" name="showing_id" th:value="${showing.showingId}">Vælg Visning</button>
                     </td>
                 </tr>
                 </tbody>

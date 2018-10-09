@@ -20,17 +20,16 @@
             <tbody>
                 <tr th:each="movie : ${allmovies}">
                     <td>
-                        <button type="submit" formaction="/allshowings" name="movie_id" th:value="${movie.id}" th:text="${movie.name}"></button>
+                        <button type="submit" id="moviename" formaction="/allshowings" name="movie_id" th:value="${movie.id}" th:text="${movie.name}"></button>
                     </td>
                     <td th:text="${movie.genre}"> </td>
-                    <td><img th:src="${movie.img}" height="60"></td>
+                    <td><button type="submit" formaction="/allshowings" name="movie_id" th:value="${movie.id}"><img th:src="${movie.img}" height="60"></button>
+                        </td>
                 </tr>
             </tbody>
         </table>
     </form>
     </div>
-        <form method="get">
-         <button type="submit" formaction="/tilføj">Tilføj film</button>
-        </form>
+
 </body>
 </html>
