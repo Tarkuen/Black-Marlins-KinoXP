@@ -5,7 +5,11 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
+<script th:inline="javascript">
+    function myFunction() {
+        alert("Hej! Reservationen er gennemført!");
+    }
+</script>
 
 <body>
     <div class="container">
@@ -18,7 +22,7 @@
             <input type="text" name="customer_name" th:value="${customer.name}" placeholder="Navn" required>
             <input type="tel" name="customer_phone" th:value="${customer.phone}" placeholder="Telefon Nr" required>
             <input type="text" name="customer_seat" th:value="${customer.seat}" placeholder="Antal Sæder" required>
-            <button type="submit" formaction="/successfulreservation" name="showing_id" th:value="${showing.showingId}">Reserver Billet</button>
+            <button type="submit" onclick="myFunction()" formaction="/successfulreservation" name="showing_id" th:value="${showing.showingId}">Reserver Billet</button>
 
         </form>
 

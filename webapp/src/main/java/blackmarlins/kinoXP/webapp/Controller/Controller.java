@@ -82,7 +82,9 @@ public class Controller {
     }
 
     @GetMapping(path= "/tilføj")
-    public String addmovie(){return "tilføj";}
+    public String addmovie(){
+        return "tilføj";
+    }
 
     @PostMapping(path = "/tilføj")
     public String addMovie(@ModelAttribute("movie_name") String movieName,
@@ -91,7 +93,6 @@ public class Controller {
         MovieRepository movieRepository = new MovieRepository();
 
         movieRepository.create(movieName, movieGenre, movieImg);
-
         return "redirect:/";
     }
 //    @PostMapping(path = "/successfulreservation")
