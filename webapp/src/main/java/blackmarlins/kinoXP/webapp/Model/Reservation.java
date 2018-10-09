@@ -35,6 +35,62 @@ public class Reservation {
         this.showing = showing;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setShowing(Showing showing) {
+        this.showing = showing;
+    }
+
+    public String getCustomer_phone() {
+        return customer_phone;
+    }
+
+    public void setCustomer_phone(String customer_phone) {
+        this.customer_phone = customer_phone;
+    }
+
+    public String getCustomer_name() {
+        return customer_name;
+    }
+
+    public void setCustomer_name(String customer_name) {
+        this.customer_name = customer_name;
+    }
+
+    public int getCustomer_seat() {
+        return customer_seat;
+    }
+
+    public void setCustomer_seat(int customer_seat) {
+        this.customer_seat = customer_seat;
+    }
+
+    public int getShowing_id() {
+        return showing_id;
+    }
+
+    public void setShowing_id(int showing_id) {
+        this.showing_id = showing_id;
+    }
+
     public Reservation(Movie movie) {
         this.movie = movie;
     }
