@@ -153,6 +153,11 @@ input {
 #moviename:hover{
     color: white;
     text-shadow: 1px 1px 1px black;
+    
+}
+
+#back-btn {
+    margin: 1rem;
 }
 
 .w {

@@ -40,3 +40,6 @@ function sortTable(val) {
         }
     }
 }
+function goBack(){
+    window.history.back()
+}

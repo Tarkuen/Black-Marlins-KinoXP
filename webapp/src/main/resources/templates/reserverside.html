@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="/scripts/script.js"></script>
 </head>
 <script th:inline="javascript">
     function myFunction() {
@@ -35,6 +36,7 @@
             <button type="submit" onclick="myFunction()" formaction="/successfulreservation" name="showing_id" th:value="${showing.showingId}">Reserver Billet</button>
 
         </form>
+        <button onclick="goBack()" id="back-btn">Tilbage</button>
     </div>
 </body>
 </html>
