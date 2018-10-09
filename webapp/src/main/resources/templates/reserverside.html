@@ -7,7 +7,17 @@
 </head>
 <script th:inline="javascript">
     function myFunction() {
-        alert("Hej! Reservationen er gennemført!");
+        var name,seat,billet;
+        name = document.getElementById('420').value;
+        seat = document.getElementById('421').value;
+        if(seat <= 1){
+            billet = " billet"
+        }else{
+            billet = " billeter"
+        }
+
+        alert("Hej! " + name + "\n" +
+        "Du har reserveret " + seat + billet + " til " + [[${movie.name}]]);
     }
 </script>
 
@@ -19,9 +29,9 @@
         <h2>Tid: <span th:text="${showing.showingDateTime}"></span></h2>
 
         <form method="post">
-            <input type="text" name="customer_name" th:value="${customer.name}" placeholder="Navn" required>
+            <input type="text" name="customer_name" id="420" th:value="${customer.name}" placeholder="Navn" required>
             <input type="tel" name="customer_phone" th:value="${customer.phone}" placeholder="Telefon Nr" required>
-            <input type="text" name="customer_seat" th:value="${customer.seat}" placeholder="Antal Sæder" required>
+            <input type="text" name="customer_seat" id="421"  th:value="${customer.seat}" placeholder="Antal Sæder" required>
             <button type="submit" onclick="myFunction()" formaction="/successfulreservation" name="showing_id" th:value="${showing.showingId}">Reserver Billet</button>
 
         </form>
